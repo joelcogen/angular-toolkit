@@ -53,6 +53,9 @@ export class CordovaBuildBuilder implements Builder<CordovaBuildBuilderSchema> {
     // Cordova CLI will error if `www` is missing. The Angular CLI deletes it
     // by default. Let's keep it around.
     browserOptions.deleteOutputPath = false;
+    
+    console.log(options);
+    browserOptions.sourceMap = options.sourceMap;
 
     if (options.cordovaMock) {
       browserOptions.scripts.push({
